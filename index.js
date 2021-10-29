@@ -19,6 +19,7 @@ async function run() {
     try {
         await client.connect();
         console.log('connected to database');
+        console.log("Connected");
 
         const database = client.db('tourismOffers');
         const packagesCollection = database.collection('packages')
