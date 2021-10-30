@@ -20,10 +20,11 @@ async function run() {
         await client.connect();
         console.log('connected to database');
         console.log("Connected");
-        console.log("Connected");
+         console.log("Connected");
 
         const database = client.db('tourismOffers');
-        const packagesCollection = database.collection('packages')
+        const packagesCollection = database.collection('packages');
+        const bookingConfirmations = database.collection('bookingConfirmations')
         //Get Packages API
 
         app.post('/packages', async (req, res) => {
@@ -34,6 +35,20 @@ async function run() {
             console.log(result);
             res.json(result)
         })
+        //Get Bookings API
+        app.post('/bookingConfirmations', async (req, res) => {
+
+            const package = req.body;
+            console.log('hit the post', package);
+            const result = await bookingConfirmations.insertOne(package);
+            console.log(result);
+            res.json(result)
+        })
+        app.get('/bookingConfirmations', async (req, res) => {
+            const cursor = bookingConfirmations.find({});
+            const packages2 = await cursor.toArray();
+            res.send(packages2)
+        })
 
         // GET Full API
 
@@ -43,6 +58,7 @@ async function run() {
             res.send(packages)
         })
 
+
         //Get Single API
         app.get('/packages/:id', async (req, res) => {
             const id = req.params.id;
@@ -51,6 +67,17 @@ async function run() {
             const package = await packagesCollection.findOne(query);
             res.json(package);
         })
+
+        //Delete API
+
+        app.delete('/bookingConfirmations/:id', async (req, res) => {
+            const id = req.params.id;
+            const query = { _id: ObjectID(id) };
+            const result = await bookingConfirmations.deleteOne(query);
+            res.json(result);
+        })
+
+
 
     }
     finally {
