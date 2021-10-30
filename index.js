@@ -5,7 +5,7 @@ require("dotenv").config();
 const MongoClient = require("mongodb").MongoClient;
 const ObjectID = require("mongodb").ObjectId;
 
-const port = 5000;
+const port = process.env.PORT || 5000;
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -20,11 +20,11 @@ async function run() {
         await client.connect();
         console.log('connected to database');
         console.log("Connected");
-         console.log("Connected");
 
         const database = client.db('tourismOffers');
         const packagesCollection = database.collection('packages');
         const bookingConfirmations = database.collection('bookingConfirmations')
+        const hotelsCollections = database.collection('packages2')
         //Get Packages API
 
         app.post('/packages', async (req, res) => {
@@ -77,6 +77,40 @@ async function run() {
             res.json(result);
         })
 
+        //Get confirmation single API
+
+        app.put('/bookingConfirmations/:id', async (req, res) => {
+            const id = req.params.id;
+            const updatedOrder = req.body;
+            console.log('getting specific ID', id);
+            const filter = { _id: ObjectID(id) };
+            const options = { upsert: true };
+            const updateDoc = {
+                $set: {
+                    status: updatedOrder.status
+                },
+            };
+
+            const result = await bookingConfirmations.updateOne(filter, updateDoc, options)
+            res.json(result)
+        })
+
+        //Get hotels API
+
+        app.post('/packages2', async (req, res) => {
+
+            const hotelPackage = req.body;
+            console.log('hit the post', hotelPackage);
+            const result = await hotelsCollections.insertOne(hotelPackage);
+            console.log(result);
+            res.json(result)
+        })
+
+        app.get('/packages2', async (req, res) => {
+            const cursor = hotelsCollections.find({});
+            const packages2 = await cursor.toArray();
+            res.send(packages2)
+        })
 
 
     }

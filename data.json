@@ -1,0 +1,28 @@
+[
+    {
+        "name": "Le Meridien Dhaka",
+        "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/253641868.jpg?k=568faeb0e9bf00ac3901e8851fad3dbd7a9fdb988a9c3d9c8ce593df17eb4bf8&o=&hp=1",
+        "location": "Dhaka",
+        "details": "Guests can enjoy a meal at Latest Recipe serving a globally inspired menu, Favola for rustic flavours of Italy serving pasta, antipasti, and wood-fired pizzas and Olea that serves middle eastern culinary"
+    },
+    {
+        "name": " Six Seasons Hotel",
+        "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/44680112.jpg?k=9878cced7279770f3a199f967ec250a478e7bde00be89793d4904a7af9b98e76&o=&hp=1",
+        "location": "Dhaka",
+        "details": "Offering 3 dining options, Six Seasons Hotel is situated in the heart of Dhaka, just a minute walk from the serene Gulshan Lake. Free WiFi access is available."
+    },
+    {
+        "name": "Royal Tulip Sea Pearl Beach Resort",
+        "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/44680112.jpg?k=9878cced7279770f3a199f967ec250a478e7bde00be89793d4904a7af9b98e76&o=&hp=1",
+        "location": "Cox-Bazar",
+        "details": "Royal Tulip Sea Pearl Beach Resort & Spa Cox's Bazar has a restaurant, bar, a shared lounge and garden in Cox's Bazar. This 5-star resort offers a private beach area, room service and free WiFi. The resort features an outdoor swimming poo"
+    },
+    {
+        "name": "Long Beach Hotel",
+        "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/283183777.jpg?k=899b1542446c88268f790cf9968ddeffe42a7b24c7b228069de09413d5275822&o=&hp=1",
+        "location": "Cox-Bazar",
+        "details": "At Long Beach Hotel you will find a 24-hour front desk, BBQ facilities and garden. Other facilities offered at the property include meeting facilities, a shared lounge and a ticket service. The property offers free parking.The Barmiz Market Cox’s Bazar is 3 km, the Himchari National Park is 8 km and the Binani Beach is 24 km away."
+    }
+]
+
+
